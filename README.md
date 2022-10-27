@@ -18,7 +18,7 @@ This is a Java Spring boot backend service and handle some tasks:
 - We can scale out for icommerce service by add new instance service and put these services behind a load balancer
 - We can add Order service to handle the order management
 - We can add other services for the purpose notification service, report ...
-- The communication between these services use message broker.
+- The communication between these services can use message broker.
 
 ## DB schema
 ![Alt text](diagram/database.png?raw=true)
