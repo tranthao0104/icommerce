@@ -21,7 +21,7 @@ This is a Java Spring boot backend service and handle some tasks:
 - The communication between these services use message broker.
 
 ## DB schema
-![Alt text](diagram/database.PNG?raw=true)
+![Alt text](diagram/database.png?raw=true)
 
 ## Run application
 - run application first time for initialize the tables schema
