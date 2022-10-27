@@ -1,0 +1,719 @@
+{
+	"variables": [],
+	"info": {
+		"name": "nab",
+		"_postman_id": "01a06084-702d-8d7b-a2ee-74b5ae6982aa",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "icommerce",
+			"description": "",
+			"item": [
+				{
+					"name": "products",
+					"description": "",
+					"item": [
+						{
+							"name": "get-product",
+							"request": {
+								"url": "localhost:8080/products/23",
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer abc",
+										"description": ""
+									}
+								],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "get-all-products",
+							"request": {
+								"url": {
+									"raw": "localhost:8080/products/?page=0&size=10",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"products",
+										""
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0",
+											"equals": true,
+											"description": ""
+										},
+										{
+											"key": "size",
+											"value": "10",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer abc",
+										"description": ""
+									}
+								],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "3. product-create",
+							"request": {
+								"url": "localhost:8080/products",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer abc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 1,\n    \"name\": \"new product 1\",\n    \"quantity\": 20,\n    \"price\": 10000.0,\n    \"category\": {\n        \"id\": 1,\n        \"name\": \"Dresses\"\n    },\n    \"brand\": {\n        \"id\": 1,\n        \"name\": \"Owen\"\n    },\n    \"color\": {\n        \"id\": 1,\n        \"name\": \"White\"\n    }\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "4. product-create error",
+							"request": {
+								"url": "localhost:8080/products",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer abc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 2,\n    \"name\": \"new product 1\",\n    \"quantity\": 20,\n    \"price\": 10000.0,\n    \"category\": {\n        \"id\": 1,\n        \"name\": \"Dresses\"\n    },\n    \"brand\": {\n        \"id\": 1,\n        \"name\": \"Owen\"\n    },\n    \"color\": {\n        \"id\": 1,\n        \"name\": \"White\"\n    }\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "5. product-Update",
+							"request": {
+								"url": "localhost:8080/products/17",
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer abc",
+										"description": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 17,\n    \"name\": \"update product 2\",\n    \"quantity\": 20,\n    \"price\": 10000.0,\n    \"category\": {\n        \"id\": 9,\n        \"name\": \"Category 1\"\n    },\n    \"brand\": {\n        \"id\": 5,\n        \"name\": \"Brand 1\"\n    },\n    \"color\": {\n        \"id\": 5,\n        \"name\": \"White\"\n    }\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "6. product-Update  error(data integrity violation)",
+							"request": {
+								"url": "localhost:8080/products/2",
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer abc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 2,\n    \"name\": \"update product 1\",\n    \"quantity\": 20,\n    \"price\": 10000.0,\n    \"category\": {\n        \"id\": 1,\n        \"name\": \"Dresses\"\n    },\n    \"brand\": {\n        \"id\": 1,\n        \"name\": \"Owen\"\n    },\n    \"color\": {\n        \"id\": 1,\n        \"name\": \"White\"\n    }\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "7. product-Delete",
+							"request": {
+								"url": "localhost:8080/products/15",
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer abc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "8.product-search",
+							"request": {
+								"url": {
+									"raw": "localhost:8080/products/search?number=0&size=10",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"products",
+										"search"
+									],
+									"query": [
+										{
+											"key": "number",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "10"
+										}
+									],
+									"variable": []
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer abc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\n[\n    {\n        \"type\": \"NUMBER_PARAM\",\n        \"key\": \"price\",\n        \"operator\": \">=\",\n        \"value\": \"30\"\n    },\n    {\n        \"type\": \"NUMBER_PARAM\",\n        \"key\": \"price\",\n        \"operator\": \"<=\",\n        \"value\": \"60\"\n    },\n    {\n        \"type\": \"STRING_PARAM\",\n        \"key\": \"category\",\n        \"value\": \"Dresses\"\n    },\n    {\n        \"type\": \"STRING_PARAM\",\n        \"key\": \"brand\",\n        \"value\": \"Format\"\n    },\n    {\n        \"type\": \"STRING_PARAM\",\n        \"key\": \"color\",\n        \"value\": \"Pink\"\n    }\n    \n]\n"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "8.product-search copy",
+							"request": {
+								"url": {
+									"raw": "localhost:8080/products/search?number=0&size=10",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"products",
+										"search"
+									],
+									"query": [
+										{
+											"key": "number",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "10"
+										}
+									],
+									"variable": []
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer abc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\n[\n    {\n        \"type\": \"NUMBER_PARAM\",\n        \"key\": \"price\",\n        \"operator\": \">=\",\n        \"value\": \"30\"\n    },\n    {\n        \"type\": \"NUMBER_PARAM\",\n        \"key\": \"price\",\n        \"operator\": \"<=\",\n        \"value\": \"60\"\n    },\n    {\n        \"type\": \"STRING_PARAM\",\n        \"key\": \"category\",\n        \"value\": \"Dresses\"\n    },\n    {\n        \"type\": \"STRING_PARAM\",\n        \"key\": \"brand\",\n        \"value\": \"Format\"\n    },\n    {\n        \"type\": \"STRING_PARAM\",\n        \"key\": \"color\",\n        \"value\": \"Pink\"\n    }\n    \n]\n"
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "carts",
+					"description": "",
+					"item": [
+						{
+							"name": "Get-all-carts",
+							"request": {
+								"url": {
+									"raw": "localhost:8080/products?page=0&size=3",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"products"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "3"
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Get-cart-by-user",
+							"request": {
+								"url": {
+									"raw": "localhost:8080/products?page=0&size=3",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"products"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "3"
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "add-to-cart",
+							"request": {
+								"url": "localhost:8080/carts/test-user/addToCart",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer abc",
+										"description": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n    \"quantity\": 20,\n    \"price\": 10000.0,\n\t\"product\": {\n\t\t\"id\":28,\n\t    \"name\": \"new product 3\",\n\t    \"description\": \"new product 3\",\n\t    \"quantity\": 100,\n\t    \"price\": 100.0,\n\t    \"category\": {\n\t        \"id\": 9,\n\t        \"name\": \"Category 1\"\n\t    },\n\t    \"brand\": {\n\t        \"id\": 5,\n\t        \"name\": \"Owen\"\n\t    },\n\t    \"color\": \"Blue\"\n\t}\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "remove-from-cart",
+							"request": {
+								"url": "localhost:8080/products/15",
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer abc"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"description": "",
+			"item": [
+				{
+					"name": "1. Order - Add to Cart - user(1) - product(1) - quantity(3)",
+					"request": {
+						"url": {
+							"raw": "localhost:8080/orders/1/addToCart/1?quantity=3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"1",
+								"addToCart",
+								"1"
+							],
+							"query": [
+								{
+									"key": "quantity",
+									"value": "3"
+								}
+							],
+							"variable": []
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer abc"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "2. Order - Remove Cart - user(1) - product(1) - quantity(2)",
+					"request": {
+						"url": {
+							"raw": "localhost:8080/orders/1/removeFromCart/1?quantity=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"1",
+								"removeFromCart",
+								"1"
+							],
+							"query": [
+								{
+									"key": "quantity",
+									"value": "2"
+								}
+							],
+							"variable": []
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer abc"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "3. Order - Remove Cart Error - Not enough quantity into cart",
+					"request": {
+						"url": {
+							"raw": "localhost:8080/orders/1/removeFromCart/1?quantity=3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"1",
+								"removeFromCart",
+								"1"
+							],
+							"query": [
+								{
+									"key": "quantity",
+									"value": "3"
+								}
+							],
+							"variable": []
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer abc"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "4. Order - Add to Cart Error- Not Enough quantity",
+					"request": {
+						"url": {
+							"raw": "localhost:8080/orders/1/addToCart/1?quantity=21",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"1",
+								"addToCart",
+								"1"
+							],
+							"query": [
+								{
+									"key": "quantity",
+									"value": "21"
+								}
+							],
+							"variable": []
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer abc"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "5. Order - Add to Cart Again",
+					"request": {
+						"url": {
+							"raw": "localhost:8080/orders/1/addToCart/1?quantity=8",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"1",
+								"addToCart",
+								"1"
+							],
+							"query": [
+								{
+									"key": "quantity",
+									"value": "8"
+								}
+							],
+							"variable": []
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer abc"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "6. Order - getCartProducts",
+					"request": {
+						"url": "localhost:8080/orders/1/cartProducts",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer abc"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "7. Order - getTotal",
+					"request": {
+						"url": "localhost:8080/orders/1/getTotal",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer abc"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "8. Order - checkout",
+					"request": {
+						"url": "localhost:8080/orders/1/checkout",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer abc"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "9. Order - clear session",
+					"request": {
+						"url": "localhost:8080/orders/1/clearSession",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer abc"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n[\n    {\n        \"type\": \"NUMBER_PARAM\",\n        \"key\": \"price\",\n        \"operator\": \">=\",\n        \"value\": \"30\"\n    },\n    {\n        \"type\": \"NUMBER_PARAM\",\n        \"key\": \"price\",\n        \"operator\": \"<=\",\n        \"value\": \"60\"\n    },\n    {\n        \"type\": \"STRING_PARAM\",\n        \"key\": \"category\",\n        \"value\": \"Dresses\"\n    },\n    {\n        \"type\": \"STRING_PARAM\",\n        \"key\": \"brand\",\n        \"value\": \"Format\"\n    },\n    {\n        \"type\": \"STRING_PARAM\",\n        \"key\": \"color\",\n        \"value\": \"Pink\"\n    }\n    \n]\n"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
